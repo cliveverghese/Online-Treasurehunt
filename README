@@ -1,6 +1,8 @@
 Treasure hunt
 engine to online treasure hunt games.
 
+Copy and paste the config.php.sample as config.php and add the username
+password for the database
 
 To register admin user place the firstReg.php in the folder and 
 firstReg.php?name=<admin_user>&password=<admin_password>
