@@ -1,3 +1,8 @@
 Treasure hunt
 engine to online treasure hunt games.
 
+
+To register admin user place the firstReg.php in the folder and 
+firstReg.php?name=<admin_user>&password=<admin_password>
+
+Make sure you delete the firstReg.php file after it's use.. 
