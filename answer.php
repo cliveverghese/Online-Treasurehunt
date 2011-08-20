@@ -5,11 +5,9 @@
 	{
 	Header("Location: loginform.php");
 	}
-	if($_SESSION["role"] >= 0)
-	{
 	
 	$level = $_SESSION["level"];
-	$answer = filter_var($_GET["answer"],513);
+	$answer = $_GET["answer"];
 
 	$sql = "INSERT INTO logs (user,val,level,time) VALUES ('" . mysql_real_escape_string($_SESSION["valid_user"]) . "','" . mysql_real_escape_string($answer) . "','". $level . "','" . time() . "')";
 
@@ -41,8 +39,6 @@
 	}
 	else
 		$content = "Wrong answer. <a href = \"index.php\">Try again</a>";
-	}
-	else
-		$content = "You have been banned from playing. Please contact the admins";	
+	
 	require_once("theme/theme.php");
 ?>
