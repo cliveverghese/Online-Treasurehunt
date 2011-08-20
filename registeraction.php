@@ -53,7 +53,8 @@
 				$result = mysql_result($ref,0);
 				if($result == 0)
 				{
-					$sql = "INSERT INTO users (name,password,level,passtime,mob, college, email,role,fname) VALUES ('" . mysql_real_escape_string($name) . "','" . sha1(mysql_real_escape_string($password)) . "','0','" . time() . "','". $phone . "','" . mysql_real_escape_string($college) .  "','" . mysql_real_escape_string($email) . "','1','" . mysql_real_escape_string($alias) . "')";
+					$validation = sha1($name . $password);
+					$sql = "INSERT INTO users (name,password,level,passtime,mob, college, email,role,fname,validation,validated) VALUES ('" . mysql_real_escape_string($name) . "','" . sha1(mysql_real_escape_string($password)) . "','1','" . time() . "','". $phone . "','" . mysql_real_escape_string($college) .  "','" . mysql_real_escape_string($email) . "','0','" . mysql_real_escape_string($alias) . "','" . $validation . "','0')";
 					$ref = mysql_query($sql);
 				
 				

@@ -5,7 +5,7 @@
 	{
 	Header("Location: loginform.php");
 	}
-	if($_SESSION["role"] >= 0)
+	if($_SESSION["role"] >= 1)
 	{
 	
 	$level = $_SESSION["level"];
@@ -42,6 +42,8 @@
 	else
 		$content = "Wrong answer. <a href = \"index.php\">Try again</a>";
 	}
+	else if($_SESSION["role"] == 1)
+		$content = "Please complete you email validation";
 	else
 		$content = "You have been banned from playing. Please contact the admins";	
 	require_once("theme/theme.php");
