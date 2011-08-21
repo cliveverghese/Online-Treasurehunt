@@ -17,8 +17,6 @@
 
 			$sql = "INSERT INTO fame (user,time,status,college) VALUES ('" . $row['fname'] . "','" . time() . "','1','" . $row['college'] . "')";
 			$ref = mysql_query($sql);
-			$row = mysql_fetch_assoc($ref);
-			
 
 		}
 		else if($opt == "rem")

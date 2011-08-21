@@ -8,3 +8,9 @@ To register admin user place the firstReg.php in the folder and
 firstReg.php?name=<admin_user>&password=<admin_password>
 
 Make sure you delete the firstReg.php file after it's use.. 
+
+Adding Levels.
+--------------
+
+Input the Level name as the level number.
+The first level should be started from level 0.

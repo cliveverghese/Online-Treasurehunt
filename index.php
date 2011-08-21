@@ -72,7 +72,7 @@
 	{
 		$id = $_SESSION["level"];
 
-		$sql = "SELECT * FROM levels WHERE id = '" . mysql_real_escape_string($id) . "'" ;
+		$sql = "SELECT * FROM levels WHERE level = '" . mysql_real_escape_string($id) . "'" ;
 		$ref = mysql_query($sql);
 		$row = mysql_fetch_assoc($ref);
 		$content = $row['contents'] ;
