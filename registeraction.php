@@ -60,7 +60,10 @@
 					$link = "http://" . $host . "/mail.php?validationCode=" . $validation;
 				
 				
-					$content = "Registered Sucessfully, Take me to the <a href = \"loginform.php\">login page</a><br/>" . $link;
+					$content = "Registered Sucessfully, Take me to the <a href = \"loginform.php\">login page</a>A conformation mail has been sent to you.";
+					$mail_content = "Please complete your registration process by following the link.\n" . $link;
+					$header = "From: <" . WEB_ADMIN_MAIL . ">";
+					mail($email,"Email Varification",$mail_content,$header);
 				}
 				else
 					$content = "That alias is already taken. <a href \"register.php\">Try another alias</a>";
