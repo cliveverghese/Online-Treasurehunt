@@ -56,9 +56,11 @@
 					$validation = sha1($name . $password);
 					$sql = "INSERT INTO users (name,password,level,passtime,mob, college, email,role,fname,validation,validated) VALUES ('" . mysql_real_escape_string($name) . "','" . sha1(mysql_real_escape_string($password)) . "','1','" . time() . "','". $phone . "','" . mysql_real_escape_string($college) .  "','" . mysql_real_escape_string($email) . "','0','" . mysql_real_escape_string($alias) . "','" . $validation . "','0')";
 					$ref = mysql_query($sql);
+					$host = WEB_HOST;
+					$link = "http://" . $host . "/mail.php?validationCode=" . $validation;
 				
 				
-					$content = "Registered Sucessfully, Take me to the <a href = \"loginform.php\">login page</a>";
+					$content = "Registered Sucessfully, Take me to the <a href = \"loginform.php\">login page</a><br/>" . $link;
 				}
 				else
 					$content = "That alias is already taken. <a href \"register.php\">Try another alias</a>";
