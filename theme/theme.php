@@ -2,23 +2,11 @@
 <head>
 	<title><?php if ($title) print $title; ?><?php if (!$title) print "Treasure Hunt" ?></title>
 	<link href = "theme/style.css" media = "all" rel = "stylesheet" type = "text/css">
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-15226524-5']);
-	  _gaq.push(['_trackPageview']);
-	
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
-
+	<link href = "http://fonts.googleapis.com/css?family=Aldrich" rel = "stylesheet" type = "text/css">
 </head>
 <body>
-	<div id = "watermark"></div>
+	<div id = "watermarkleft"></div>
+	<div id = "watermarkright"></div>
 	<div id = "header">
 		<div id = "logo">
 			<a href = "index.php"><img src = "theme/imgs/logo.png" height = "100px" width = "250px"></a>
@@ -36,9 +24,18 @@
 
 	</div>
 	
-	<div id = "navbar">
-		<a href = "leaderboard.php"><img src = "theme/imgs/leaderboard.png"></a><br><a href = "rules.php"><img src = "theme/imgs/rules.png"></a><br><a href = "hall.php"><img src = "theme/imgs/winners.png"></a><br><?php if($_SESSION["valid_user"]) :?><a href = "forum.php"><img src = "theme/imgs/forum.png"></a><br><a href = "logout.php"><img src = "theme/imgs/logout.png"></a><?php endif; ?><?php if($_SESSION["role"] >= 6) :?><br><a href = "addlevels.php">Add levels</a><?php endif; ?>
-	</div>
+	<ul id = "navbar">
+		<li><a href = "index.php">Home</a></li>
+		<li><a href = "leaderboard.php">Leaderboard</a></li>
+		<li><a href = "rules.php">Rules</a></li>
+		<li><a href = "hall.php">Hall of Fame</a></li>
+		<?php if($_SESSION["valid_user"]) :?>
+		<li><a href = "forum.php">Forum</a></li>
+		<li><a href = "logout.php">Logout</a></li><?php endif; ?>
+		<?php if($_SESSION["role"] >= 6) :?>
+		<li><a href = "addlevels.php">Add levels</a></li>
+		<?php endif; ?>
+	</ul>
 	
 	<div id = "center_content<?php if($pagetype) print $pagetype ;?>">
 	<?php print $content; ?>

@@ -3,7 +3,7 @@
 	require_once("database.php");
 	$sql = "SELECT * FROM users WHERE role != 10 AND role != -1 ORDER BY level DESC,passtime ASC";
 	$ref = mysql_query($sql);
-	$content = "<h2>Who's On Top</h2><br><br><table width = \"60%\" align = \"center\">";
+	$content = "<h2>Clueless Ranking</h2><br><br><table width = \"60%\" align = \"center\">";
 	$i = 1;
 	while($row = mysql_fetch_assoc($ref))
 	{
