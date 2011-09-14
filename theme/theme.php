@@ -1,27 +1,59 @@
 <html>
 <head>
-	<title><?php if ($title) print $title; ?><?php if (!$title) print "Treasure Hunt" ?></title>
-	<link href = "theme/style.css" media = "all" rel = "stylesheet" type = "text/css">
+	<title><?php if ($title) print $title; ?><?php if (!$title) print "Clueless" ?></title>
+	<link href = "theme/clueless/style.css" media = "all" rel = "stylesheet" type = "text/css">
 	<link href = "http://fonts.googleapis.com/css?family=Aldrich" rel = "stylesheet" type = "text/css">
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+	function positionContent() {
+		var w = 0;
+		var h = 0;
+		//IE
+		if(!window.innerWidth)
+		{
+			//strict mode
+			if(!(document.documentElement.clientWidth == 0))
+			{
+				w = document.documentElement.clientWidth;
+				h = document.documentElement.clientHeight;
+			}
+			//quirks mode
+			else
+			{
+				w = document.body.clientWidth;
+				h = document.body.clientHeight;
+			}
+		}
+		//w3c
+		else
+		{
+			w = window.innerWidth;
+			h = window.innerHeight;
+		}
+		if(document.getElementById('center_content')!=null) {
+			document.getElementById('center_content').style.left = (w-900)/2 + "px";
+		}
+		if(document.getElementById('center_contentadmin')!=null) {
+			document.getElementById('center_contentadmin').style.left = (w-900)/2 + "px";
+		}
+		if(document.getElementById('center_contentplayer')!=null) {
+			document.getElementById('center_contentplayer').style.left = (w-900)/2 + "px";
+		}
+	}
+	</script>
 </head>
-<body>
+<body onload="javascript:positionContent()">
 	<div id = "watermarkleft"></div>
 	<div id = "watermarkright"></div>
+	<?php if($_SESSION["valid_user"]) :?>
+	<div id = "welcome">
+		Whaddap, <?php echo $_SESSION["valid_user"]; ?>!
+	</div>		
+	<?php endif; ?>	
 	<div id = "header">
 		<div id = "logo">
-			<a href = "index.php"><img src = "theme/imgs/logo.png" height = "100px" width = "250px"></a>
+			<img src = "theme/clueless/clueless_s.png" height = "69px" width = "495px">
 		</div>
-		<?php if($_SESSION["valid_user"]) :?>
-		<div id = "welcome">
-			Suit up!! <?php echo $_SESSION["valid_user"]; ?>
-		</div>
-	<div id = "footerNotification">
-		Game Ended.... Winners list has been <a href = "leaderboard.php">updated</a>.
-	</div>
-
-		
-		<?php endif; ?>	
-
 	</div>
 	
 	<ul id = "navbar">

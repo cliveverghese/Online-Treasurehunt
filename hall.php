@@ -8,7 +8,7 @@
 	
 	else if($_SESSION["role"] >= 5)
 	{
-		$sql = "SELECT * FROM users WHERE role != 10 AND role != -1 ORDER BY level DESC,passtime ASC";
+		$sql = "SELECT * FROM users WHERE role != 10 AND role != -1 ORDER BY level DESC, passtime ASC";
 		$content = $content . "<br><br><form name = \"fame.php\" action = \"addfame.php\"><select name = \"winner\">";
 		$ref = mysql_query($sql);
 		while($row = mysql_fetch_assoc($ref))

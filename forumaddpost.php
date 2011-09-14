@@ -17,11 +17,11 @@
 	}
 	if($_SESSION["role"] >=5)
 	{
-	$sql = "INSERT INTO forum (user,val,time,status,level) VALUES ('" . mysql_real_escape_string($_SESSION["valid_fname"]) . "','" . mysql_real_escape_string($val) . "','" . time() . "','2','" . $level . "')";
+	$sql = "INSERT INTO forum (user, val, status, level) VALUES ('" . mysql_real_escape_string($_SESSION["valid_fname"]) . "','" . mysql_real_escape_string($val) . "','2','" . $level . "')";
 	}
 	else 
 	{
-	$sql = "INSERT INTO forum (user,val,time,status,level) VALUES ('" . mysql_real_escape_string($_SESSION["valid_fname"]) . "','" . mysql_real_escape_string($val) . "','" . time() . "','1','" . $level . "')";
+	$sql = "INSERT INTO forum (user, val, status, level) VALUES ('" . mysql_real_escape_string($_SESSION["valid_fname"]) . "','" . mysql_real_escape_string($val) . "','1','" . $level . "')";
 	}
 	if($_SESSION["role"] >= 0)
 	{

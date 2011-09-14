@@ -15,10 +15,8 @@
 			$ref = mysql_query($sql);
 			$row = mysql_fetch_assoc($ref);
 
-			$sql = "INSERT INTO fame (user,time,status,college) VALUES ('" . $row['fname'] . "','" . time() . "','1','" . $row['college'] . "')";
+			$sql = "INSERT INTO fame (user, status, college) VALUES ('" . $row['fname'] . "', '1', '" . $row['college'] . "')";
 			$ref = mysql_query($sql);
-			$row = mysql_fetch_assoc($ref);
-			
 
 		}
 		else if($opt == "rem")
@@ -27,6 +25,5 @@
 			$ref = mysql_query($sql);
 		}
 	}
-
 	Header("Location: hall.php");
 ?>  

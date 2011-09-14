@@ -4,66 +4,82 @@ require_once("config.php");
 $result = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
 $database = DB_NAME;
 @mysql_select_db($database) or die( "Unable to select database. Please see if the database exists");
-$sql = sprintf("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '%s' AND table_name = '%s'", DB_NAME, mysql_real_escape_string('levels'));
 
+$sql = "CREATE TABLE IF NOT EXISTS `levels` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `name` varchar(200) DEFAULT NULL,
+		  `als` varchar(200) DEFAULT NULL,
+		  `title` varchar(1000) DEFAULT NULL,
+		  `contents` varchar(1000) DEFAULT NULL,
+		  `answer` varchar(1000) DEFAULT NULL,
+		  `cookie` varchar(1000) DEFAULT NULL,
+		  `javascript` varchar(1000) DEFAULT NULL,
+		  `stat` int(11) DEFAULT NULL,
+		  `misc` varchar(200) DEFAULT NULL,
+		  UNIQUE KEY `id` (`id`)
+	)";
 $ref = mysql_query($sql);
 
-$result = mysql_result($ref, 0);
-if($result == 0){	
-	 $sql = "CREATE TABLE levels (id INT UNIQUE AUTO_INCREMENT, name VARCHAR(200), als VARCHAR(200), title VARCHAR(1000), contents VARCHAR(1000), answer VARCHAR(1000), cookie VARCHAR(1000), javascript VARCHAR(1000), stat INT, misc VARCHAR(200))";
-	 $ref = mysql_query($sql);
-	 $result = mysql_result($ref,0);
-}
 
-$sql = sprintf("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '%s' AND table_name = '%s'", DB_NAME, mysql_real_escape_string('users'));
+$sql = "CREATE TABLE IF NOT EXISTS `users` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `name` varchar(200) DEFAULT NULL,
+		  `password` varchar(200) DEFAULT NULL,
+		  `level` int(11) DEFAULT NULL,
+		  `passtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+		  `mob` varchar(20) DEFAULT NULL,
+		  `college` varchar(200) DEFAULT NULL,
+		  `email` varchar(200) DEFAULT NULL,
+		  `role` int(11) DEFAULT NULL,
+		  `fname` varchar(200) DEFAULT NULL,
+		  `validation` varchar(200) DEFAULT NULL,
+		  `validated` int(11) DEFAULT NULL,
+		  UNIQUE KEY `id` (`id`)
+	);";
 $ref = mysql_query($sql);
 
-$result = mysql_result($ref,0);
 
-if($result == 0)
-{
-	$sql = "CREATE TABLE users (id INT UNIQUE AUTO_INCREMENT, name VARCHAR(200), password VARCHAR(200), level INT, passtime INT, mob VARCHAR(20) ,college VARCHAR(200), email VARCHAR(200), role INT, fname VARCHAR(200))";
-	$ref = mysql_query($sql);
-	$result = mysql_result($ref, 0);
-}
-
-$sql = sprintf("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '%s' AND table_name = '%s'", DB_NAME, mysql_real_escape_string('logs'));
+$sql = "CREATE TABLE IF NOT EXISTS `logs` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `user` varchar(200) DEFAULT NULL,
+		  `val` varchar(2000) DEFAULT NULL,
+		  `level` int(11) DEFAULT NULL,
+		  `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+		  UNIQUE KEY `id` (`id`)
+	);";
 $ref = mysql_query($sql);
 
-$result = mysql_result($ref,0);
 
-if($result == 0)
-{
-	$sql = "CREATE TABLE logs (id INT UNIQUE AUTO_INCREMENT, user VARCHAR(200), val VARCHAR(2000), level INT, time INT)";
-	$ref = mysql_query($sql);
-	$result = mysql_result($ref, 0);
-}
+$sql = "CREATE TABLE IF NOT EXISTS `accesslogs` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `ip` varchar(20) DEFAULT NULL,
+		  `user` varchar(200) DEFAULT NULL,
+		  `val` varchar(2000) DEFAULT NULL,
+		  `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+		  UNIQUE KEY `id` (`id`)
+	);";
+$ref = mysql_query($sql);
 
-$sql = sprintf("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '%s' AND table_name = '%s'", DB_NAME, mysql_real_escape_string('accesslogs'));
-$ref = mysql_query($sql);
-$result = mysql_result($ref,0);
-if($result == 0)
-{
-	$sql = "CREATE TABLE accesslogs (id INT UNIQUE AUTO_INCREMENT, ip VARCHAR(20), user VARCHAR(200), val VARCHAR(2000), time INT)";
-	$ref = mysql_query($sql);
-	$result = mysql_result($ref,0);
-}
-$sql = sprintf("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '%s' AND table_name = '%s'", DB_NAME, mysql_real_escape_string('forum'));
-$ref = mysql_query($sql);
-$result = mysql_result($ref,0);
-if($result == 0)
-{
-	$sql = "CREATE TABLE forum (id INT UNIQUE AUTO_INCREMENT, user VARCHAR(200), val VARCHAR(2000), time INT, status INT, level INT)";
-	$ref = mysql_query($sql);
-	$result = mysql_result($ref,0);
-}
 
-$sql = sprintf("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '%s' AND table_name = '%s'", DB_NAME, mysql_real_escape_string('fame'));
+$sql = "CREATE TABLE IF NOT EXISTS `forum` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `user` varchar(200) DEFAULT NULL,
+		  `val` varchar(2000) DEFAULT NULL,
+		  `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+		  `status` int(11) DEFAULT NULL,
+		  `level` int(11) DEFAULT NULL,
+		  UNIQUE KEY `id` (`id`)
+	);";
 $ref = mysql_query($sql);
-$result = mysql_result($ref,0);
-if($result == 0)
-{
-	$sql = "CREATE TABLE fame (id INT UNIQUE AUTO_INCREMENT, user VARCHAR(200), time INT, status INT ,college VARCHAR(200))";
-	$ref = mysql_query($sql);
-}
+
+
+$sql = "CREATE TABLE IF NOT EXISTS `fame` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `user` varchar(200) DEFAULT NULL,
+		  `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+		  `status` int(11) DEFAULT NULL,
+		  `college` varchar(200) DEFAULT NULL,
+		  UNIQUE KEY `id` (`id`)
+	);";
+$ref = mysql_query($sql);
 ?>

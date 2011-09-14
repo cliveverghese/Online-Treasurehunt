@@ -5,13 +5,17 @@
 	{
 	Header("Location: loginform.php");
 	}
-	if($_SESSION["role"] >= 0)
-	{
+	
+	$content = "<div class='box'>
+		<img src=\"theme/clueless/border_tl.png\" style=\"position:absolute; top:0; left:0;\" />
+		<img src=\"theme/clueless/border_tr.png\" style=\"position:absolute; top:0; right:0;\" />
+		<img src=\"theme/clueless/border_bl.png\" style=\"position:absolute; bottom:0; left:0;\" />
+		<img src=\"theme/clueless/border_br.png\" style=\"position:absolute; bottom:0; right:0;\" />";
 	
 	$level = $_SESSION["level"];
-	$answer = filter_var($_GET["answer"],513);
+	$answer = $_GET["answer"];
 
-	$sql = "INSERT INTO logs (user,val,level,time) VALUES ('" . mysql_real_escape_string($_SESSION["valid_user"]) . "','" . mysql_real_escape_string($answer) . "','". $level . "','" . time() . "')";
+	$sql = "INSERT INTO logs (user,val,level) VALUES ('" . mysql_real_escape_string($_SESSION["valid_user"]) . "','" . mysql_real_escape_string($answer) . "','". $level . "')";
 
 	$ref = mysql_query($sql);
 
@@ -23,7 +27,7 @@
 	$ans = $row['answer'];
 	if(!($ans))
 	{
-		$content = "you are trying to answer a question that is has not yet been decided";
+		$content .= "you are trying to answer a question that has not yet been decided";
 	}
 
 
@@ -32,7 +36,7 @@
 		$level++;
 		$_SESSION["level"] = $level;
 		$content = "Answer is right. <a href = \"index.php\">Next Level</a>";
-		$sql = "UPDATE users SET level = '" . $level . "' , passtime = " . time() . " WHERE id = '" . $_SESSION["ids"] ."'"; 
+		$sql = "UPDATE users SET level = '" . $level . "' WHERE id = '" . $_SESSION["ids"] ."'"; 
 		$ref = mysql_query($sql);
 		$ref = mysql_query($sql);
 
@@ -40,9 +44,7 @@
 		
 	}
 	else
-		$content = "Wrong answer. <a href = \"index.php\">Try again</a>";
-	}
-	else
-		$content = "You have been banned from playing. Please contact the admins";	
+		$content .= "Wrong answer. <a href = \"index.php\">Try again</a>";
+	$content .= "</div><br /><br />";
 	require_once("theme/theme.php");
 ?>
