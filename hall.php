@@ -32,5 +32,5 @@
 		$content = $content . "</tr>";
 	} 
 	$content = $content . "</table>";
-	require_once("theme/theme.php");
+	require_once("theme/clueless/theme.php");
 ?>

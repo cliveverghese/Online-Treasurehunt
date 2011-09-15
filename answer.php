@@ -46,5 +46,5 @@
 	else
 		$content .= "Wrong answer. <a href = \"index.php\">Try again</a>";
 	$content .= "</div><br /><br />";
-	require_once("theme/theme.php");
+	require_once("theme/clueless/theme.php");
 ?>

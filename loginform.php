@@ -1,10 +1,10 @@
 <?php
 	$content = "<div class=\"box\" >
-	<form id=\"login\" action=\"login.php\" method=\"post\">
 	<img src=\"theme/clueless/border_tl.png\" style=\"position:absolute; top:0; left:0;\" />
 	<img src=\"theme/clueless/border_tr.png\" style=\"position:absolute; top:0; right:0;\" />
 	<img src=\"theme/clueless/border_bl.png\" style=\"position:absolute; bottom:0; left:0;\" />
 	<img src=\"theme/clueless/border_br.png\" style=\"position:absolute; bottom:0; right:0;\" />
+	<form id=\"login\" action=\"login.php\" method=\"post\">
 	<h2>Login</h2>
 	<br />
 	<table id=\"tablelogin\">
@@ -14,9 +14,8 @@
 	<td><input type=\"password\" name=\"password\" class=\"textbox\" /></td></tr>
 	</table>
 	<br />
-	<input type=\"submit\" value=\"Login\" class=\"button\"/>
+	<input type=\"submit\" value=\"LOGIN\" class=\"button\"/>
 	</form>
-	<br />Not playin' yet?, <a title = \"Register\" href = \"register.php\">c'mon in!</a>
 	</div>";
-	require_once("theme/theme.php");
+	require_once("theme/clueless/theme.php");
 ?>

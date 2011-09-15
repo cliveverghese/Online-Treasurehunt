@@ -37,5 +37,5 @@
 	}
 	else
 		$content = "Restricted Area";
-	require_once("theme/theme.php");
+	require_once("theme/clueless/theme.php");
 ?>

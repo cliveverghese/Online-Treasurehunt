@@ -35,5 +35,5 @@
 		}
 		$content = $content . "</p>";
 	}
-	require_once("theme/theme.php");
+	require_once("theme/clueless/theme.php");
 ?>

@@ -10,16 +10,16 @@
 	<br />
 	<table id= \"tablereg\">
 	<tr><td>username</td> <td><input class = \"textbox\" type = \"text\" name = \"username\"/></td></tr>
-	<tr><td>alias</td> <td><input class = \"textbox\" type = \"text\" name = \"alias\"/></td></tr>
+	<tr><td>display name</td> <td><input class = \"textbox\" type = \"text\" name = \"alias\"/></td></tr>
 	<tr><td>password</td> <td><input class = \"textbox\" type = \"password\" name = \"password\"/></td></tr>
 	<tr><td>college</td> <td><input class = \"textbox\" type = \"text\" name = \"college\"></td></tr>
 	<tr><td>phone</td> <td><input class = \"textbox\" type = \"text\" name = \"phone\"></td></tr>
 	<tr><td>email</td><td> <input class = \"textbox\" type = \"text\" name = \"email\"></td></tr>
 	</table>
 	<br />
-	<input type = \"submit\" value = \"Register\" class=\"button\">
+	<input type = \"submit\" value = \"REGISTER\" class=\"button\">
 	</form>
 	</div>";
-	require_once("theme/theme.php");
+	require_once("theme/clueless/theme.php");
 
 ?>

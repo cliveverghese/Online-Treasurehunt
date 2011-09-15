@@ -31,5 +31,5 @@
 	}
 	else
 		$content = "You are not allowed to post in the forum";
-	require_once("theme/theme.php");
+	require_once("theme/clueless/theme.php");
 ?>
