@@ -6,12 +6,6 @@
 	Header("Location: loginform.php");
 	}
 	
-	$content = "<div class='box'>
-		<img src=\"theme/clueless/border_tl.png\" style=\"position:absolute; top:0; left:0;\" />
-		<img src=\"theme/clueless/border_tr.png\" style=\"position:absolute; top:0; right:0;\" />
-		<img src=\"theme/clueless/border_bl.png\" style=\"position:absolute; bottom:0; left:0;\" />
-		<img src=\"theme/clueless/border_br.png\" style=\"position:absolute; bottom:0; right:0;\" />";
-	
 	$level = $_SESSION["level"];
 	$answer = $_GET["answer"];
 
@@ -44,7 +38,7 @@
 		
 	}
 	else
-		$content .= "Wrong answer. <a href = \"index.php\">Try again</a>";
-	$content .= "</div><br /><br />";
-	require_once("theme/clueless/theme.php");
+		$content = "Wrong answer. <a href = \"index.php\">Try again</a>";
+	
+	require_once("theme/theme.php");
 ?>

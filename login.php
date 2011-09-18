@@ -5,14 +5,10 @@
 	$sql = "SELECT * FROM users WHERE name = '" . $_POST["name"] . "'";
 	$ref = mysql_query($sql);
 	$row = mysql_fetch_assoc($ref);
-	$content = "<div class='box'>
-	<img src=\"theme/clueless/border_tl.png\" style=\"position:absolute; top:0; left:0;\" />
-	<img src=\"theme/clueless/border_tr.png\" style=\"position:absolute; top:0; right:0;\" />
-	<img src=\"theme/clueless/border_bl.png\" style=\"position:absolute; bottom:0; left:0;\" />
-	<img src=\"theme/clueless/border_br.png\" style=\"position:absolute; bottom:0; right:0;\" />";
+	
 	if($row == NULL)
 	{
-		$content .= "Really? Don't fool around! :P";
+		$content = "Its not your friends we asked";
 		$log = "Tried login in with wrong username and password was " . $_POST["password"];
 	}
 	else if($row["password"] == $password)
