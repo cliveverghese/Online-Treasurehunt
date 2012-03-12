@@ -1,5 +1,6 @@
 Treasure hunt
 engine to online treasure hunt games.
+(Created first for tresor chasse, Conjura'11)
 
 Copy and paste the config.php.sample as config.php and add the username
 password for the database
